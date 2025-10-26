@@ -231,10 +231,6 @@
   </style>
 </head>
 <body class="container py-5 modo-oscuro">
-  
-<button id="volverArriba" style="position: fixed; bottom: 20px; left: 20px; display: none;" class="btn btn-secondary">
-  ↑
-</button>
 
 <nav class="navbar navbar-expand-lg bg-principal text-white fixed-top shadow-sm">
   <div class="container-fluid px-4">
@@ -315,8 +311,18 @@
       <a id="enviarCarrito" class="btn btn-sm btn-success" target="_blank">Enviar por WhatsApp</a>
     </div>
   </div>
+    
+  <button id="volverArriba" style="position: fixed; bottom: 20px; left: 20px; display: none;" class="btn btn-secondary">
+    ↑
+  </button>
+  
   <script>
     const configWhatsApp = "https://wa.me/5492974324876";
+    
+    window.addEventListener('scroll', () => {
+      document.getElementById('volverArriba').style.display = window.scrollY > 300 ? 'block' : 'none';
+    });
+    document.getElementById('volverArriba').onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
     function mostrarGrupo(nombre, event) {
       document.querySelectorAll('.grupo-section').forEach(div => {
