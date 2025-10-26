@@ -4,23 +4,19 @@
   <meta charset="UTF-8">
   <title>Vista previa</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- Vista previa para redes sociales -->
-<meta property="og:title" content="Mi pagina web">
-<meta property="og:description" content="Bloquera.">
-<meta property="og:image" content="https://bloqueraweb.onrender.com/img/imagen150.jpg">
-<meta property="og:image:type" content="image/jpeg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:url" content="https://bloqueraweb.onrender.com">
-<meta property="og:type" content="website">
-<meta name="twitter:card" content="summary_large_image">
-
-
-
+  <!-- Vista previa para redes sociales -->
+  <meta property="og:title" content="Mi pagina web">
+  <meta property="og:description" content="Bloquera.">
+  <meta property="og:image" content="https://bloqueraweb.onrender.com/img/imagen150.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:url" content="https://bloqueraweb.onrender.com">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
   <!-- Google Fonts disponibles -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Playfair+Display&family=Fira+Code&family=Raleway&family=Quicksand&family=Pacifico&family=Source+Serif+4&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
 
   <style>
     body {
@@ -153,6 +149,18 @@
       border-radius: 5px;
       font-size: 14px;
     }
+    .btn-volver-arriba {
+      background-color: white;
+      color: black;
+      border: none;
+      font-size: 20px;
+      box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+    }
+    .btn-volver-arriba:hover {
+      background-color: #f0f0f0;
+      transform: scale(1.1);
+    }
     .grupo-section {
       display: none;
     }
@@ -224,6 +232,19 @@
       color: black;
       border: none;
     }
+    .navbar-collapse {
+      backdrop-filter: blur(6px);
+      border-radius: 0 0 12px 12px;
+      padding: 20px;
+    }
+    .modo-claro .navbar-collapse {
+      background-color: rgba(255, 255, 255, 0.8);
+      color: #333;
+    }
+    .modo-oscuro .navbar-collapse {
+      background-color: rgba(0, 0, 0, 0.6);
+      color: white;
+    }
     .modo-claro #toggleCarrito {
       background-color: None;
       color: white;
@@ -248,67 +269,50 @@
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
       <ul class="navbar-nav gap-3">
         <li class="nav-item"><a class="nav-link text-white" href="#botones-grupo">Productos</a></li>
-        <li class="nav-item"><a class="nav-link text-white" href="#carrito">Carrito</a></li>
         <li class="nav-item"><a class="nav-link text-white" href="#ubicacion">Ubicación</a></li>
       </ul>
     </div>
   </div>
 </nav>
-
-
+  
 <div class="text-center my-3">
   <img src="/static/img/Copilot_20251022_180643.png"
        alt="Logo"
        class="img-fluid logo">
 </div>
-
-  
-    <div class="text-center mb-4">
-      <div class="descripcion-emprendimiento">
-        (Emprendimiento familiar)
+<div class="text-center mb-4">
+  <div class="descripcion-emprendimiento">
+(Emprendimiento familiar)
 <br>Fabricamos bloques vibrados de excelente calidad!
 <br>Somos de Caleta Olivia
-      </div>
-    </div>
-  
-  
-    <div class="text-center mb-4" id="botones-grupo"></div>
-    <div id="contenedor-grupos"></div>
-  
-  <div class="social-icons">
-    
-      <a href="https://www.facebook.com/profile.php?id=100070385734178" target="_blank">
-        <img src="/static/img/facebook.png" alt="Facebook">
-      </a>
-    
-    
-    
-      <a href="https://wa.me/5492974324876" target="_blank">
-        <img src="/static/img/whatsapp.png" alt="WhatsApp">
-      </a>
-    
   </div>
-
+</div>
   
-    <div id="ubicacion" class="bloque-ubicacion text-center mt-4">
-      <p style="margin-bottom: 6px;">
-        📍 Saul Ubaldini 857 (Caleta Olivia)
-      </p>
-      
-        <a href="https://maps.app.goo.gl/ei74CvfqJMVAhPUb6" target="_blank" style="text-decoration: none;">
-          <span style="margin-right: 6px;">➜</span>
-          <img src="/static/img/map.png" alt="Ver en Google Maps" style="width: 30px;">
-        </a>
-      
-    </div>
+<div class="text-center mb-4" id="botones-grupo"></div>
+  <div id="contenedor-grupos"></div>
+  <div class="social-icons">
+  <a href="https://www.facebook.com/profile.php?id=100070385734178" target="_blank">
+    <img src="/static/img/facebook.png" alt="Facebook">
+  </a>
+   <a href="https://wa.me/5492974324876" target="_blank">
+     <img src="/static/img/whatsapp.png" alt="WhatsApp">
+  </a>
+</div>
   
-  <footer class="text-center mt-5 py-4" style="font-size: 14px; color: #aaa;">
-    © 2025 Bloquera Familiar · Caleta Olivia · Todos los derechos reservados
-  </footer>
-
+<div id="ubicacion" class="bloque-ubicacion text-center mt-4">
+   <p style="margin-bottom: 6px;">
+    📍 Saul Ubaldini 857 (Caleta Olivia)
+   </p>
+   <a href="https://maps.app.goo.gl/ei74CvfqJMVAhPUb6" target="_blank" style="text-decoration: none;">
+     <span style="margin-right: 6px;">➜</span>
+    <img src="/static/img/map.png" alt="Ver en Google Maps" style="width: 30px;">
+   </a>
+</div>
+<footer class="text-center mt-5 py-4" style="font-size: 14px; color: #aaa;">
+   © 2025 Bloquera Familiar · Caleta Olivia · Todos los derechos reservados
+</footer>
 
   <button id="toggleCarrito">🛒</button>
-
   <div id="carrito">
     <h5>🛒 Tu carrito</h5>
     <ul id="listaCarrito"></ul>
@@ -319,10 +323,10 @@
     </div>
   </div>
     
-  <button id="volverArriba" style="position: fixed; bottom: 20px; left: 20px; display: none;" class="btn btn-secondary">
+  <button id="volverArriba" class="btn btn-volver-arriba" style="position: fixed; bottom: 20px; left: 20px; display: none; z-index: 1000;">
     ↑
   </button>
-  
+ 
   <script>
     const configWhatsApp = "https://wa.me/5492974324876";
     
@@ -555,6 +559,19 @@ document.addEventListener('click', function(event) {
     carritoDiv.style.display = 'none';
   }
 });
+ document.addEventListener('click', function (event) {
+    const navbar = document.querySelector('.navbar-collapse');
+    const toggler = document.querySelector('.navbar-toggler');
+
+    const isOpen = navbar.classList.contains('show');
+    const clickedInsideMenu = navbar.contains(event.target);
+    const clickedToggler = toggler.contains(event.target);
+
+    if (isOpen && !clickedInsideMenu && !clickedToggler) {
+      const bsCollapse = new bootstrap.Collapse(navbar, { toggle: false });
+      bsCollapse.hide();
+    }
+  });
 </script>
 </body>
 </html>
