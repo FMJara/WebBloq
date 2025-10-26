@@ -21,40 +21,33 @@
   <style>
     body {
       font-family: 'Quicksand', sans-serif;
-      padding-top: 70px;
-      background: none; /* 🔧 quitamos la imagen de fondo aquí */
+      background-image: url('/static/img/mini_4_jf7.jpeg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: center;
     }
     @keyframes fadeInUp {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
     .fondo-animado {
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  z-index: -1; /* 🔧 encima de la imagen, debajo del contenido */
-  background: radial-gradient(circle at 20% 30%, rgba(255,255,255,0.08), transparent 40%),
-              radial-gradient(circle at 80% 70%, rgba(255,255,255,0.06), transparent 40%);
-  animation: moverFondo 40s ease-in-out infinite;
-  background-size: 200% 200%;
-  pointer-events: none;
-  mix-blend-mode: screen;
-  opacity: 0.5;
-}
-
-
-   body::before {
-  content: "";
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background-image: url('/static/img/mini_4_jf7.jpeg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center;
-  background-color: rgba(0,0,0,0.4); /* 🔧 oscurece la imagen */
-  z-index: -2; /* 🔧 más atrás que la animación */
-}
-
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      z-index: -2; /* más atrás */
+      background: radial-gradient(circle at 20% 30%, rgba(255,255,255,0.08), transparent 40%),
+                  radial-gradient(circle at 80% 70%, rgba(255,255,255,0.06), transparent 40%);
+      animation: moverFondo 40s ease-in-out infinite;
+      background-size: 200% 200%;
+      pointer-events: none;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.4);
+      z-index: -1; /* encima de la animación, debajo del contenido */
+    }
     .social-icons img {
       transition: transform 0.3s ease, filter 0.3s ease;
     }
