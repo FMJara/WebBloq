@@ -32,55 +32,52 @@
       background-position: center;
     }
     body::before {
-     content: "";
-     position: fixed;
-     top: 0; left: 0; right: 0; bottom: 0;
-     background: rgba(0,0,0,0.4); /* o rgba(255,255,255,0.3) */
-     z-index: -1;
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.4); /* o rgba(255,255,255,0.3) */
+      z-index: -1;
     }
     .social-icons img {
-  transition: transform 0.3s ease, filter 0.3s ease;
-}
-.social-icons img:hover {
-  transform: scale(1.2);
-  filter: drop-shadow(0 0 6px {{ config.color }});
-}
-
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+    .social-icons img:hover {
+      transform: scale(1.2);
+      filter: drop-shadow(0 0 6px {{ config.color }});
+    }
     body {
-     padding-top: 70px; /* para que el contenido no quede tapado por la navbar */
+      padding-top: 70px; /* para que el contenido no quede tapado por la navbar */
     }
     .card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-}
-
-.btn-grupo {
-  transition: all 0.3s ease;
-}
-.btn-grupo:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 8px {{ config.color }};
-}
-
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+    .btn-grupo {
+      transition: all 0.3s ease;
+    }
+    .btn-grupo:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 8px {{ config.color }};
+    }
+    html {
+     scroll-behavior: smooth;
+    }
     .modo-claro {
       color: #333;
     }
-
     .color-principal {
       color: {{ config.color }};
     }
     .bg-principal {
       background-color: {{ config.color }};
     }
-
     .logo {
       height: 10vw;
       max-height: 380px;
     }
-
     @media (max-width: 600px) {
       .logo {
         height: 140px !important;
@@ -98,36 +95,29 @@
       font-size: 16px;
       line-height: 1.6;
     }
-
-    
     .modo-claro .card {
       background-color: #fff;
       color: #333;
       border: none;
     }
-
     .modo-claro .btn-grupo {
       background-color: None;
       color: white;
       border: none;
     }
-
     .modo-oscuro {
       color: white;
     }
-
     .modo-oscuro .card {
       background-color: rgba(0,0,0,0.6);
       color: white;
       border: 1px solid rgba(255,255,255,0.2);
     }
-
     .modo-oscuro .btn-grupo {
       background-color: None;
       color: black;
       border: 2px solid None;
     }
-
     .card-img-top {
       width: 100%;
       max-width: 300px;
@@ -136,7 +126,6 @@
       margin-left: auto;
       margin-right: auto;
     }
-
     .btn-grupo {
       padding: 8px 16px;
       margin: 5px;
@@ -144,16 +133,13 @@
       font-weight: bold;
       transition: background-color 0.3s ease;
     }
-
     .btn-grupo:hover {
       background-color: #fff;
       color: None;
     }
-
     .btn-grupo.active {
       box-shadow: 0 0 5px None;
     }
-
     .btn-whatsapp {
       background-color: #25D366;
       border: none;
@@ -162,33 +148,27 @@
       border-radius: 5px;
       font-size: 14px;
     }
-
     .grupo-section {
       display: none;
     }
-
     .grupo-section.active {
       display: flex !important;
       flex-wrap: wrap;
     }
-
     .social-icons {
       margin-top: 40px;
       text-align: center;
     }
-
     .social-icons img {
       width: 40px;
       margin: 0 10px;
       transition: transform 0.3s ease;
       filter: drop-shadow(0 0 3px white);
     }
-
     .social-icons img:hover {
       transform: scale(1.1);
       filter: drop-shadow(0 0 6px None);
     }
-
     .bloque-ubicacion {
       background-color: rgba(0, 0, 0, 0.5);
       color: white;
@@ -199,7 +179,6 @@
       margin: 20px auto 0;
       box-shadow: 0 0 6px rgba(255,255,255,0.3);
     }
-
     #carrito {
       position: fixed;
       bottom: 80px;
@@ -210,21 +189,18 @@
       z-index: 999;
       display: none;
     }
-
     .modo-oscuro #carrito {
       background-color: rgba(0,0,0,0.85);
       color: white;
       border: 1px solid white;
       box-shadow: 0 0 10px white;
     }
-
     .modo-claro #carrito {
       background-color: #fff;
       color: #333;
       border: 1px solid #ccc;
       box-shadow: 0 0 10px rgba(0,0,0,0.2);
     }
-
     #toggleCarrito {
       position: fixed;
       bottom: 20px;
@@ -235,13 +211,11 @@
       font-weight: bold;
       box-shadow: 0 0 5px white;
     }
-
     .modo-oscuro #toggleCarrito {
       background-color: None;
       color: black;
       border: none;
     }
-
     .modo-claro #toggleCarrito {
       background-color: None;
       color: white;
@@ -263,7 +237,6 @@
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
       <ul class="navbar-nav gap-3">
         <li class="nav-item"><a class="nav-link text-white" href="#botones-grupo">Productos</a></li>
-        <li class="nav-item"><a class="nav-link text-white" href="#carrito">Carrito</a></li>
         <li class="nav-item"><a class="nav-link text-white" href="#ubicacion">Ubicación</a></li>
       </ul>
     </div>
@@ -304,7 +277,7 @@
   </div>
 
   
-    <div class="bloque-ubicacion text-center mt-4">
+    <div id="ubicacion" class="bloque-ubicacion text-center mt-4">
       <p style="margin-bottom: 6px;">
         📍 Saul Ubaldini 857 (Caleta Olivia)
       </p>
