@@ -31,6 +31,13 @@
       background-attachment: fixed;
       background-position: center;
     }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .card {
+      animation: fadeInUp 0.5s ease forwards;
+    }
     body::before {
       content: "";
       position: fixed;
@@ -224,12 +231,15 @@
   </style>
 </head>
 <body class="container py-5 modo-oscuro">
+  
+<button id="volverArriba" style="position: fixed; bottom: 20px; left: 20px; display: none;" class="btn btn-secondary">
+  ↑
+</button>
 
 <nav class="navbar navbar-expand-lg bg-principal text-white fixed-top shadow-sm">
   <div class="container-fluid px-4">
     <a class="navbar-brand text-white fw-bold" href="#">
       <img src="/static/img/Copilot_20251022_180643.png" alt="Logo" style="height: 40px; margin-right: 10px;">
-      Bloquera Familiar
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
