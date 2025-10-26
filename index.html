@@ -178,6 +178,10 @@
       transition: transform 0.3s ease;
       filter: drop-shadow(0 0 3px white);
     }
+    .btn-volver-arriba:focus {
+      outline: none;
+      box-shadow: none;
+    }
     body {
       padding-top: 70px; /* Ajusta según el alto de tu navbar */
     }
@@ -333,8 +337,10 @@
     window.addEventListener('scroll', () => {
       document.getElementById('volverArriba').style.display = window.scrollY > 300 ? 'block' : 'none';
     });
-    document.getElementById('volverArriba').onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
-
+    document.getElementById('volverArriba').onclick = () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      document.getElementById('volverArriba').blur(); // ✅ quita el foco visual
+    };
     function mostrarGrupo(nombre, event) {
       document.querySelectorAll('.grupo-section').forEach(div => {
         div.classList.remove('active');
@@ -347,14 +353,12 @@
       });
       event.target.classList.add('active');
     }
-
     window.onload = function() {
       const primero = document.querySelector('.grupo-section');
       if (primero) primero.classList.add('active');
       const primerBtn = document.querySelector('.btn-grupo');
       if (primerBtn) primerBtn.classList.add('active');
     };
-
     let carrito = [];
 
     function agregarAlCarritoDOM(nombre, idPrecioSpan, idCantidad) {
