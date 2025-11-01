@@ -120,7 +120,7 @@
       gap: 16px;
       padding: 12px 20px;
       box-shadow: 0 2px 6px rgba(255, 255, 255, 0.1);
-      margin: 0; /* Eliminar márgenes */
+      margin: 0;
     }
     .barra-navegacion button {
       font-family: 'Quicksand', sans-serif;
@@ -133,7 +133,7 @@
       color: white;
       box-shadow: 0 0 6px rgba(255, 255, 255, 0.2);
       transition: all 0.3s ease;
-      margin: 0; /* Eliminar márgenes internos */
+      margin: 0;
     }
     .barra-navegacion button:hover {
       background: rgba(255, 255, 255, 0.15);
@@ -145,23 +145,23 @@
     }
     .panel-grupos {
       position: fixed;
-      top: 68px; /* ajustá según la altura real de tu barra principal */
       left: 0;
       right: 0;
-      z-index: 906;
+      z-index: 999;
       background: rgba(0, 0, 0, 0.6);
       backdrop-filter: blur(6px);
-      padding: 1px 0;
+      padding: 10px 0;
       text-align: center;
       box-shadow: 0 2px 6px rgba(255, 255, 255, 0.1);
+      margin: 0;
     }
     .panel-grupos button {
       font-family: 'Quicksand', sans-serif;
       font-weight: 600;
       margin: 6px;
-      padding: 2px 8px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 8px 16px;
       border-radius: 30px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
       background: rgba(255, 255, 255, 0.05);
       color: white;
       box-shadow: 0 0 6px rgba(255, 255, 255, 0.2);
@@ -172,6 +172,35 @@
       background: rgba(255, 255, 255, 0.15);
       transform: scale(1.05);
       box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+    }
+    .panel-subcategorias {
+      position: fixed;
+      left: 0;
+      right: 0;
+      z-index: 998;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(6px);
+      padding: 10px 0;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(255, 255, 255, 0.1);
+      margin: 0;
+    }
+    .panel-subcategorias button {
+      font-family: 'Quicksand', sans-serif;
+      font-weight: 600;
+      margin: 6px;
+      padding: 8px 16px;
+      border-radius: 30px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.05);
+      color: white;
+      box-shadow: 0 0 6px rgba(255, 255, 255, 0.2);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .panel-subcategorias button:hover {
+      background: rgba(255, 255, 255, 0.15);
+      transform: scale(1.05);
     }
     .oculto {
       display: none !important;
@@ -186,6 +215,23 @@
     @media (max-width: 600px) {
       .logo {
         height: 140px !important;
+      }
+      .barra-navegacion {
+        padding: 8px 10px;
+        gap: 8px;
+      }
+      .barra-navegacion button {
+        font-size: 14px;
+        padding: 8px 15px;
+      }
+      .panel-grupos {
+        padding: 8px 0;
+      }
+      .panel-grupos button,
+      .btn-atras {
+        font-size: 14px;
+        padding: 6px 12px;
+        margin: 4px;
       }
     }
     @keyframes pulsoLogo {
@@ -358,36 +404,6 @@
       color: white;
       border: none;
     }
-    .panel-subcategorias {
-      position: fixed;
-      top: 112px; /* debajo del panel de grupos */
-      left: 0;
-      right: 0;
-      z-index: 908;
-      background: rgba(0, 0, 0, 0.6);
-      backdrop-filter: blur(6px);
-      padding: 1px 0;
-      text-align: center;
-      box-shadow: 0 2px 6px rgba(255, 255, 255, 0.1);
-      transition: all 0.3s ease;
-    }
-    .panel-subcategorias button {
-      font-family: 'Quicksand', sans-serif;
-      font-weight: 600;
-      margin: 6px;
-      padding: 1px 8px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 30px;
-      background: rgba(255, 255, 255, 0.05);
-      color: white;
-      box-shadow: 0 0 6px rgba(255, 255, 255, 0.2);
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    .panel-subcategorias button:hover {
-      background: rgba(255, 255, 255, 0.15);
-      transform: scale(1.05);
-    }
     @keyframes fadeInUp {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
@@ -415,26 +431,6 @@
       transform: scale(1.05);
       box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
     }
-    /* Media query para móviles (pantallas menores a 600px) */
-    @media (max-width: 600px) {
-      .barra-navegacion {
-        padding: 8px 10px;
-        gap: 8px;
-      }
-      .barra-navegacion button {
-        font-size: 14px;
-        padding: 8px 15px;
-      }
-      .panel-grupos {
-        padding: 8px 0;
-      }
-      .panel-grupos button,
-      .btn-atras {
-        font-size: 14px;
-        padding: 6px 12px;
-        margin: 4px;
-      }
-    }
   </style>
 </head>
 <body class="container py-5 modo-oscuro">
@@ -443,13 +439,7 @@
       <button id="btnProductos">Productos</button>
       <button id="btnContacto">Contacto</button>
     </nav>
-    <div id="panelGrupos" class="panel-grupos oculto">
-      <button class="btn-atras" onclick="cerrarPaneles()">← Atrás</button>
-      <button class="btn-grupo" onclick="mostrarGrupo('Indumentaria Mujer', event)">Indumentaria Mujer</button>
-      <button class="btn-grupo" onclick="mostrarGrupo('Indumentaria Hombre', event)">Indumentaria Hombre</button>
-      <button class="btn-grupo" onclick="mostrarGrupo('Mochilas', event)">Mochilas</button>
-      <button class="btn-grupo" onclick="mostrarGrupo('Carpas', event)">Carpas</button>
-    </div>
+    <div id="panelGrupos" class="panel-grupos oculto"></div>
   </div>
 
   <div id="panelSubcategorias" class="panel-subcategorias oculto"></div>
@@ -490,63 +480,7 @@
             </div>
           </div>
         </div>
-        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-          <div class="card p-3 h-100">
-            <img src="/static/img/Men-Women-Hiking-Jacket-Waterproof-Quick-Dry-Camping-Hunting-Clothes-Sun-Protective-Outdoor-Sports-Coats-Anti_7SKe.webp" class="card-img-top" alt="Campera" loading="lazy">
-            <div class="card-body">
-              <h5 class="card-title">Campera</h5>
-              <p class="card-text">Impermeable</p>
-              <p><strong>Precio:</strong> $ <span id="precio_">60200</span></p>
-              <a href="https://wa.me/549" class="btn btn-whatsapp">Contactar por WhatsApp</a>
-              <div class="mt-2 d-flex flex-wrap align-items-center gap-2">
-                <label for="cantidad_" class="mb-0" style="font-size: 14px;">Cantidad:</label>
-                <input type="number" min="1" max="100" value="1" class="form-control form-control-sm" style="width: 70px;" id="cantidad_">
-                <button type="button" class="btn btn-secondary"
-                  onclick="agregarAlCarritoDOM('Campera', 'precio_', 'cantidad_')">
-                  Agregar al carrito
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-          <div class="card p-3 h-100">
-            <img src="/static/img/Men-Women-Hiking-Jacket-Waterproof-Quick-Dry-Camping-Hunting-Clothes-Sun-Protective-Outdoor-Sports-Coats-Anti_7SKe.webp" class="card-img-top" alt="Campera" loading="lazy">
-            <div class="card-body">
-              <h5 class="card-title">Campera</h5>
-              <p class="card-text">Impermeable</p>
-              <p><strong>Precio:</strong> $ <span id="precio_">60200</span></p>
-              <a href="https://wa.me/549" class="btn btn-whatsapp">Contactar por WhatsApp</a>
-              <div class="mt-2 d-flex flex-wrap align-items-center gap-2">
-                <label for="cantidad_" class="mb-0" style="font-size: 14px;">Cantidad:</label>
-                <input type="number" min="1" max="100" value="1" class="form-control form-control-sm" style="width: 70px;" id="cantidad_">
-                <button type="button" class="btn btn-secondary"
-                  onclick="agregarAlCarritoDOM('Campera', 'precio_', 'cantidad_')">
-                  Agregar al carrito
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-          <div class="card p-3 h-100">
-            <img src="/static/img/Men-Women-Hiking-Jacket-Waterproof-Quick-Dry-Camping-Hunting-Clothes-Sun-Protective-Outdoor-Sports-Coats-Anti_7SKe.webp" class="card-img-top" alt="Campera" loading="lazy">
-            <div class="card-body">
-              <h5 class="card-title">Campera</h5>
-              <p class="card-text">Impermeable</p>
-              <p><strong>Precio:</strong> $ <span id="precio_">60200</span></p>
-              <a href="https://wa.me/549" class="btn btn-whatsapp">Contactar por WhatsApp</a>
-              <div class="mt-2 d-flex flex-wrap align-items-center gap-2">
-                <label for="cantidad_" class="mb-0" style="font-size: 14px;">Cantidad:</label>
-                <input type="number" min="1" max="100" value="1" class="form-control form-control-sm" style="width: 70px;" id="cantidad_">
-                <button type="button" class="btn btn-secondary"
-                  onclick="agregarAlCarritoDOM('Campera', 'precio_', 'cantidad_')">
-                  Agregar al carrito
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
+        <!-- Repite más productos si es necesario -->
       </div>
     </div>
     <div class="subgrupo-bloque mb-4" data-subgrupo="Pantalones">
@@ -790,8 +724,8 @@
       if (event?.target) event.target.classList.add('active');
 
       const subcategorias = subcategoriasPorGrupo[nombre] || [];
-      const panel = document.getElementById('panelSubcategorias');
-      panel.innerHTML = '';
+      const panelSub = document.getElementById('panelSubcategorias');
+      panelSub.innerHTML = '';
 
       const bloques = grupoActivo?.querySelectorAll('.subgrupo-bloque');
 
@@ -801,20 +735,26 @@
         btn.textContent = sub;
         btn.className = 'btn-grupo';
         btn.onclick = () => filtrarSubcategoria(nombre, sub);
-        panel.appendChild(btn);
+        panelSub.appendChild(btn);
       });
 
       if (!auto) {
-        panel.classList.remove('oculto');
+        panelSub.classList.remove('oculto');
         bloques?.forEach(bloque => {
           bloque.style.display = 'block';
         });
+
+        // Posicionar el panel de subcategorías debajo del botón seleccionado
+        const botonSeleccionado = event.target;
+        const rect = botonSeleccionado.getBoundingClientRect();
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        panelSub.style.top = (rect.bottom + scrollTop) + 'px';
 
         if (subcategorias.length > 0) {
           filtrarSubcategoria(nombre, subcategorias[0]);
         }
       } else {
-        panel.classList.add('oculto');
+        panelSub.classList.add('oculto');
         if (subcategorias.length > 0) {
           filtrarSubcategoria(nombre, subcategorias[0]);
         }
@@ -841,12 +781,22 @@
       panelSubcategorias.classList.add('oculto');
       panelGrupos.classList.add('oculto');
 
-      const primerBtn = document.querySelector('.btn-grupo');
-      if (primerBtn) {
-        mostrarGrupo(primerBtn.textContent.trim(), { target: primerBtn }, true);
-      }
+      // Crear botones de categorías dinámicamente
+      const grupos = ["Indumentaria Mujer", "Indumentaria Hombre", "Mochilas", "Carpas"];
+      const atrasBtn = document.createElement('button');
+      atrasBtn.textContent = '← Atrás';
+      atrasBtn.className = 'btn-atras';
+      atrasBtn.onclick = cerrarPaneles;
+      panelGrupos.appendChild(atrasBtn);
 
-      // Ajuste inicial al cargar la página
+      grupos.forEach(grupo => {
+        const btn = document.createElement('button');
+        btn.textContent = grupo;
+        btn.className = 'btn-grupo';
+        btn.onclick = (event) => mostrarGrupo(grupo, event);
+        panelGrupos.appendChild(btn);
+      });
+
       const barraNav = document.querySelector('.barra-navegacion');
       const alturaBarra = barraNav.offsetHeight;
       panelGrupos.style.top = alturaBarra + 'px';
@@ -936,11 +886,10 @@
       const panelSub = document.getElementById('panelSubcategorias');
       const barraNav = document.querySelector('.barra-navegacion');
 
-      // Calcular la altura de la barra de navegación y ajustarla dinámicamente
       const alturaBarra = barraNav.offsetHeight;
       panelGrupos.style.top = alturaBarra + 'px';
 
-      panelGrupos.classList.toggle('oculto');
+      panelGrupos.classList.remove('oculto');
 
       if (!panelSub.classList.contains('oculto')) {
         panelSub.classList.add('oculto');
@@ -957,43 +906,18 @@
       const panelSub = document.getElementById('panelSubcategorias');
       panelGrupos.classList.add('oculto');
       panelSub.classList.add('oculto');
-      // Opcional: volver a la vista inicial
-      const primerBtn = document.querySelector('.btn-grupo');
-      if (primerBtn) {
-        mostrarGrupo(primerBtn.textContent.trim(), { target: primerBtn }, true);
-      }
     }
 
-    // Mostrar/ocultar el panel de grupos al tocar "Productos"
     const btnProductos = document.getElementById('btnProductos');
     if (btnProductos) {
-      btnProductos.addEventListener('click', () => {
-        mostrarTodos();
-        console.log('Botón Productos clickeado'); // Para depuración
-      });
+      btnProductos.addEventListener('click', mostrarTodos);
     }
 
-    // Scroll al pie de página al tocar "Contacto"
     const btnContacto = document.getElementById('btnContacto');
     if (btnContacto) {
-      btnContacto.addEventListener('click', () => {
-        irAContacto();
-      });
+      btnContacto.addEventListener('click', irAContacto);
     }
 
-    // Cierre del carrito al hacer clic fuera
-    document.addEventListener('click', function(event) {
-      const carritoDiv = document.getElementById('carrito');
-      const toggleBtn = document.getElementById('toggleCarrito');
-      const esCarrito = carritoDiv.contains(event.target);
-      const esBoton = toggleBtn.contains(event.target);
-
-      if (!esCarrito && !esBoton && carritoDiv.style.display === 'block') {
-        carritoDiv.style.display = 'none';
-      }
-    });
-
-    // Cierre de paneles al hacer clic fuera
     document.addEventListener('click', function(event) {
       const panelGrupos = document.getElementById('panelGrupos');
       const panelSub = document.getElementById('panelSubcategorias');
@@ -1004,24 +928,18 @@
       const clicDentroSub = panelSub.contains(event.target);
 
       if (!clicEnBoton && !clicDentroGrupos && !clicDentroSub && !panelGrupos.classList.contains('oculto')) {
-        panelGrupos.classList.add('oculto');
-        panelSub.classList.add('oculto');
+        cerrarPaneles();
       }
     });
 
-    // Manejo de la barra de navegación de Bootstrap (si aplica)
     document.addEventListener('click', function(event) {
-      const navbar = document.querySelector('.navbar-collapse');
-      if (!navbar) return;
-      const toggler = document.querySelector('.navbar-toggler');
+      const carritoDiv = document.getElementById('carrito');
+      const toggleBtn = document.getElementById('toggleCarrito');
+      const esCarrito = carritoDiv.contains(event.target);
+      const esBoton = toggleBtn.contains(event.target);
 
-      const isOpen = navbar.classList.contains('show');
-      const clickedInsideMenu = navbar.contains(event.target);
-      const clickedToggler = toggler?.contains(event.target);
-
-      if (isOpen && !clickedInsideMenu && !clickedToggler) {
-        const bsCollapse = new bootstrap.Collapse(navbar, { toggle: false });
-        bsCollapse.hide();
+      if (!esCarrito && !esBoton && carritoDiv.style.display === 'block') {
+        carritoDiv.style.display = 'none';
       }
     });
   </script>
@@ -1127,54 +1045,6 @@
         });
       });
     }
-
-    // Cierre del carrito al hacer clic fuera
-    document.addEventListener('click', function(event) {
-      const carritoDiv = document.getElementById('carrito');
-      const toggleBtn = document.getElementById('toggleCarrito');
-      const esCarrito = carritoDiv.contains(event.target);
-      const esBoton = toggleBtn.contains(event.target);
-
-      if (!esCarrito && !esBoton && carritoDiv.style.display === 'block') {
-        carritoDiv.style.display = 'none';
-      }
-    });
-
-    // Cierre del panel de grupos y subcategorías al hacer clic fuera
-    document.addEventListener('click', function (event) {
-      const panelGrupos = document.getElementById('panelGrupos');
-      const panelSub = document.getElementById('panelSubcategorias');
-      const btnProductos = document.getElementById('btnProductos');
-
-      const clicEnBoton = btnProductos.contains(event.target);
-      const clicDentroGrupos = panelGrupos.contains(event.target);
-      const clicDentroSub = panelSub.contains(event.target);
-
-      if (!clicEnBoton && !clicDentroGrupos && !clicDentroSub) {
-        if (!panelGrupos.classList.contains('oculto')) {
-          panelGrupos.classList.add('oculto');
-        }
-        if (!panelSub.classList.contains('oculto')) {
-          panelSub.classList.add('oculto');
-        }
-      }
-    });
-
-    // Manejo de la barra de navegación de Bootstrap (si aplica)
-    document.addEventListener('click', function (event) {
-      const navbar = document.querySelector('.navbar-collapse');
-      if (!navbar) return; // Evitar errores si no hay navbar-collapse
-      const toggler = document.querySelector('.navbar-toggler');
-
-      const isOpen = navbar.classList.contains('show');
-      const clickedInsideMenu = navbar.contains(event.target);
-      const clickedToggler = toggler?.contains(event.target);
-
-      if (isOpen && !clickedInsideMenu && !clickedToggler) {
-        const bsCollapse = new bootstrap.Collapse(navbar, { toggle: false });
-        bsCollapse.hide();
-      }
-    });
   </script>
 </body>
 </html>
