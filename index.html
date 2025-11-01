@@ -173,7 +173,7 @@
       transform: scale(1.05);
       box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
     }
-    .oculta {
+    .oculto {
       display: none !important;
     }
     .logo { 
@@ -459,7 +459,7 @@
   </button>
 
   <div class="text-center my-3">
-    <img src="/static/img/Copilot_20251101_125947.png" alt="Logo" class="img-fluid logo">
+    <img src="/static/img/GREEN_PEAKS.png" alt="Logo" class="img-fluid logo">
   </div>
 
   <div class="text-center mb-4">
@@ -966,15 +966,20 @@
 
     // Mostrar/ocultar el panel de grupos al tocar "Productos"
     const btnProductos = document.getElementById('btnProductos');
-    btnProductos.addEventListener('click', () => {
-      mostrarTodos();
-    });
+    if (btnProductos) {
+      btnProductos.addEventListener('click', () => {
+        mostrarTodos();
+        console.log('Botón Productos clickeado'); // Para depuración
+      });
+    }
 
     // Scroll al pie de página al tocar "Contacto"
     const btnContacto = document.getElementById('btnContacto');
-    btnContacto.addEventListener('click', () => {
-      irAContacto();
-    });
+    if (btnContacto) {
+      btnContacto.addEventListener('click', () => {
+        irAContacto();
+      });
+    }
 
     // Cierre del carrito al hacer clic fuera
     document.addEventListener('click', function(event) {
@@ -1146,11 +1151,11 @@
       const clicDentroSub = panelSub.contains(event.target);
 
       if (!clicEnBoton && !clicDentroGrupos && !clicDentroSub) {
-        if (!panelGrupos.classList.contains('oculta')) {
-          panelGrupos.classList.add('oculta');
+        if (!panelGrupos.classList.contains('oculto')) {
+          panelGrupos.classList.add('oculto');
         }
-        if (!panelSub.classList.contains('oculta')) {
-          panelSub.classList.add('oculta');
+        if (!panelSub.classList.contains('oculto')) {
+          panelSub.classList.add('oculto');
         }
       }
     });
