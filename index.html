@@ -144,7 +144,8 @@
     }
     .panel-grupos {
       position: fixed;
-      top: 0px; /* ajustá según la altura real de tu barra principal */
+      max-height: 50vh; /* Altura máxima global */
+      overflow-y: auto; /* Desplazamiento vertical global *//
       left: 0;
       right: 0;
       z-index: 906;
@@ -354,6 +355,8 @@
     }
     .panel-subcategorias {
       position: fixed;
+      max-height: 50vh; /* Altura máxima global */
+      overflow-y: auto; /* Desplazamiento vertical global */
       left: 0;
       right: 0;
       z-index: 908;
