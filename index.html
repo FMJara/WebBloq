@@ -404,7 +404,7 @@
    }
   .panel-subcategorias {
     padding: 1px 0;
-    max-height: 40vh; /* Altura máxima para el panel de subcategorías */
+    max-height: 50vh; /* Altura máxima para el panel de subcategorías */
     overflow-y: auto; /* Hace el panel desplazable verticalmente */
   }
   .panel-subcategorias button {
@@ -1043,6 +1043,7 @@ function ajustarPosicionesPaneles() {
       const alturaBarra = barraNav ? barraNav.offsetHeight : 0;
       const alturaGrupos = panelGrupos ? panelGrupos.offsetHeight : 0;
       const margenAdicional = 10; // Margen para evitar superposiciones
+      const desplazamientoArriba = -20;
       panelSub.style.top = (alturaBarra + alturaGrupos + margenAdicional) + 'px';
       panelSub.style.position = 'fixed';
       panelSub.style.left = '0';
