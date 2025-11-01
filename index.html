@@ -1066,7 +1066,7 @@ function ajustarPosicionesPaneles() {
   if (!panelSub.classList.contains('oculta')) {
     const alturaBarra = barraNav ? barraNav.offsetHeight : 0;
     const alturaGrupos = panelGrupos ? panelGrupos.offsetHeight : 0;
-    const margenAdicional = 8; // Margen para evitar superposiciones
+    const margenAdicional = 14; // Margen para evitar superposiciones
     const desplazamientoArriba = -20; // Ajuste para subir un poco si lo necesitas
     panelSub.style.top = (alturaBarra + alturaGrupos + margenAdicional + desplazamientoArriba) + 'px';
     panelSub.style.position = 'fixed';
