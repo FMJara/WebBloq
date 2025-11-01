@@ -1076,7 +1076,20 @@ function ajustarPosicionesPaneles() {
     }
   }
 }
+// Recalcular posiciones al cargar y al cambiar el tamaño de la ventana
+window.addEventListener('load', ajustarPosicionesPaneles);
+window.addEventListener('resize', ajustarPosicionesPaneles);
 
+// Recalcular posiciones cuando se muestra un panel
+document.getElementById('btnProductos').addEventListener('click', function() {
+  setTimeout(ajustarPosicionesPaneles, 0); // Ajuste después de que el DOM se actualice
+});
+
+document.querySelectorAll('.btn-grupo').forEach(btn => {
+  btn.addEventListener('click', function() {
+    setTimeout(ajustarPosicionesPaneles, 0); // Ajuste después de mostrar subcategorías
+  });
+});
 // Resto del código (event listeners) permanece igual
   </script>
   <script type="module">
