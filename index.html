@@ -1019,39 +1019,50 @@
       if (contacto) contacto.scrollIntoView({ behavior: 'auto' }); // Cambiado a 'auto'
     }
     // Ajuste dinámico de las barras en móviles
-    function ajustarPosicionesPaneles() {
-      const panelGrupos = document.getElementById('panelGrupos');
-      const panelSub = document.getElementById('panelSubcategorias');
-      const barraNav = document.querySelector('.barra-navegacion');
+function ajustarPosicionesPaneles() {
+  const panelGrupos = document.getElementById('panelGrupos');
+  const panelSub = document.getElementById('panelSubcategorias');
+  const barraNav = document.querySelector('.barra-navegacion');
 
-      if (window.innerWidth <= 600 && !panelGrupos.classList.contains('oculta')) {
-        const alturaBarra = barraNav.offsetHeight;
-        const alturaGrupos = panelGrupos.offsetHeight;
-        panelGrupos.style.top = alturaBarra + 'px';
-        panelSub.style.top = (alturaBarra + alturaGrupos) + 'px';
-      }
-
-      if (window.innerWidth <= 600 && !panelSub.classList.contains('oculta')) {
-        const alturaBarra = barraNav.offsetHeight;
-        const alturaGrupos = panelGrupos.offsetHeight;
-        panelSub.style.top = (alturaBarra + alturaGrupos) + 'px';
-      }
+  if (window.innerWidth <= 600) {
+    if (!panelGrupos.classList.contains('oculta')) {
+      const alturaBarra = barraNav ? barraNav.offsetHeight : 0;
+      const alturaGrupos = panelGrupos ? panelGrupos.offsetHeight : 0;
+      panelGrupos.style.top = alturaBarra + 'px';
+      panelGrupos.style.position = 'fixed';
+      panelGrupos.style.left = '0';
+      panelGrupos.style.right = '0';
     }
 
-    // Recalcular posiciones al cargar y al cambiar el tamaño de la ventana
-    window.addEventListener('load', ajustarPosicionesPaneles);
-    window.addEventListener('resize', ajustarPosicionesPaneles);
+    if (!panelSub.classList.contains('oculta')) {
+      const alturaBarra = barraNav ? barraNav.offsetHeight : 0;
+      const alturaGrupos = panelGrupos ? panelGrupos.offsetHeight : 0;
+      const margenAdicional = 10; // Margen para evitar superposiciones
+      panelSub.style.top = (alturaBarra + alturaGrupos + margenAdicional) + 'px';
+      panelSub.style.position = 'fixed';
+      panelSub.style.left = '0';
+      panelSub.style.right = '0';
+    } else {
+      // Si panelSub está oculto, aseguramos que no interfiera
+      panelSub.style.top = '100%';
+    }
+  }
+}
 
-    // Recalcular posiciones cuando se muestra un panel
-    document.getElementById('btnProductos').addEventListener('click', function() {
-      setTimeout(ajustarPosicionesPaneles, 0); // Ajuste después de que el DOM se actualice
-    });
+// Recalcular posiciones al cargar y al cambiar el tamaño de la ventana
+window.addEventListener('load', ajustarPosicionesPaneles);
+window.addEventListener('resize', ajustarPosicionesPaneles);
 
-    document.querySelectorAll('.btn-grupo').forEach(btn => {
-      btn.addEventListener('click', function() {
-        setTimeout(ajustarPosicionesPaneles, 0); // Ajuste después de mostrar subcategorías
-      });
-    });
+// Recalcular posiciones cuando se muestra un panel
+document.getElementById('btnProductos').addEventListener('click', function() {
+  setTimeout(ajustarPosicionesPaneles, 0); // Ajuste después de que el DOM se actualice
+});
+
+document.querySelectorAll('.btn-grupo').forEach(btn => {
+  btn.addEventListener('click', function() {
+    setTimeout(ajustarPosicionesPaneles, 0); // Ajuste después de mostrar subcategorías
+  });
+});
   </script>
   <script type="module">
     const usarFirestore = false;
