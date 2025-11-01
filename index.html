@@ -1047,56 +1047,36 @@
       const contacto = document.getElementById('ubicacion');
       if (contacto) contacto.scrollIntoView({ behavior: 'auto' }); // Cambiado a 'auto'
     }
-    // Ajuste dinámico de las barras en móviles
+
+// Ajuste dinámico de las barras en móviles y PC
 function ajustarPosicionesPaneles() {
   const panelGrupos = document.getElementById('panelGrupos');
   const panelSub = document.getElementById('panelSubcategorias');
   const barraNav = document.querySelector('.barra-navegacion');
 
-  if (window.innerWidth <= 600) {
-    // Ajuste para móviles
-    if (!panelGrupos.classList.contains('oculta')) {
-      const alturaBarra = barraNav ? barraNav.offsetHeight : 0;
-      const alturaGrupos = panelGrupos ? panelGrupos.offsetHeight : 0;
-      panelGrupos.style.top = alturaBarra + 'px';
-      panelGrupos.style.position = 'fixed';
-      panelGrupos.style.left = '0';
-      panelGrupos.style.right = '0';
-    }
+  if (!panelGrupos.classList.contains('oculta')) {
+    const alturaBarra = barraNav ? barraNav.offsetHeight : 0;
+    const alturaGrupos = panelGrupos ? panelGrupos.offsetHeight : 0;
+    panelGrupos.style.top = alturaBarra + 'px';
+    panelGrupos.style.position = 'fixed';
+    panelGrupos.style.left = '0';
+    panelGrupos.style.right = '0';
+  }
 
-    if (!panelSub.classList.contains('oculta')) {
-      const alturaBarra = barraNav ? barraNav.offsetHeight : 0;
-      const alturaGrupos = panelGrupos ? panelGrupos.offsetHeight : 0;
-      const margenAdicional = 0;
-      panelSub.style.top = (alturaBarra + alturaGrupos + margenAdicional) + 'px';
-      panelSub.style.position = 'fixed';
-      panelSub.style.left = '0';
-      panelSub.style.right = '0';
-    } else {
-      panelSub.style.top = '100%';
-    }
+  if (!panelSub.classList.contains('oculta')) {
+    const alturaBarra = barraNav ? barraNav.offsetHeight : 0;
+    const alturaGrupos = panelGrupos ? panelGrupos.offsetHeight : 0;
+    const margenAdicional = 10; // Margen para evitar superposiciones
+    const desplazamientoArriba = -20; // Ajuste para subir un poco si lo necesitas
+    panelSub.style.top = (alturaBarra + alturaGrupos + margenAdicional + desplazamientoArriba) + 'px';
+    panelSub.style.position = 'fixed';
+    panelSub.style.left = '0';
+    panelSub.style.right = '0';
   } else {
-    // Ajuste para PC (ejemplo: top fijo mayor)
-    if (!panelGrupos.classList.contains('oculta')) {
-      const alturaBarra = barraNav ? barraNav.offsetHeight : 0;
-      const alturaGrupos = panelGrupos ? panelGrupos.offsetHeight : 0;
-      panelGrupos.style.top = alturaBarra + 'px';
-      panelGrupos.style.position = 'fixed';
-      panelGrupos.style.left = '0';
-      panelGrupos.style.right = '0';
-    }
-    if (!panelSub.classList.contains('oculta')) {
-      const alturaBarra = barraNav ? barraNav.offsetHeight : 0;
-      const alturaGrupos = panelGrupos ? panelGrupos.offsetHeight : 0;
-      const margenAdicional = 0;
-      panelSub.style.top = (alturaBarra + alturaGrupos + margenAdicional) + 'px';
-      panelSub.style.position = 'fixed';
-      panelSub.style.left = '0';
-      panelSub.style.right = '0';
-    } else {
-      panelSub.style.top = '100%';
-    }
+    panelSub.style.top = '100%';
+  }
 }
+
 // Recalcular posiciones al cargar y al cambiar el tamaño de la ventana
 window.addEventListener('load', ajustarPosicionesPaneles);
 window.addEventListener('resize', ajustarPosicionesPaneles);
