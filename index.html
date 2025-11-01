@@ -120,6 +120,7 @@
       gap: 16px;
       padding: 12px 20px;
       box-shadow: 0 2px 6px rgba(255, 255, 255, 0.1);
+      margin: 0; /* Eliminar márgenes */
     }
     .barra-navegacion button {
       font-family: 'Quicksand', sans-serif;
@@ -132,6 +133,7 @@
       color: white;
       box-shadow: 0 0 6px rgba(255, 255, 255, 0.2);
       transition: all 0.3s ease;
+      margin: 0; /* Eliminar márgenes internos */
     }
     .barra-navegacion button:hover {
       background: rgba(255, 255, 255, 0.15);
@@ -143,23 +145,23 @@
     }
     .panel-grupos {
       position: fixed;
-      top: 68px; /* ajustá según la altura real de tu barra principal */
       left: 0;
       right: 0;
-      z-index: 906;
+      z-index: 999;
       background: rgba(0, 0, 0, 0.6);
       backdrop-filter: blur(6px);
-      padding: 1px 0;
+      padding: 10px 0;
       text-align: center;
       box-shadow: 0 2px 6px rgba(255, 255, 255, 0.1);
+      margin: 0; /* Eliminar márgenes */
     }
     .panel-grupos button {
       font-family: 'Quicksand', sans-serif;
       font-weight: 600;
       margin: 6px;
-      padding: 2px 8px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 8px 16px;
       border-radius: 30px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
       background: rgba(255, 255, 255, 0.05);
       color: white;
       box-shadow: 0 0 6px rgba(255, 255, 255, 0.2);
@@ -171,7 +173,7 @@
       transform: scale(1.05);
       box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
     }
-    .oculto {
+    .oculta {
       display: none !important;
     }
     .logo { 
@@ -358,13 +360,13 @@
     }
     .panel-subcategorias {
       position: fixed;
-      top: 112px; /* debajo del panel de grupos */
+      top: 110px;
       left: 0;
       right: 0;
-      z-index: 908;
+      z-index: 998;
       background: rgba(0, 0, 0, 0.6);
       backdrop-filter: blur(6px);
-      padding: 1px 0;
+      padding: 10px 0;
       text-align: center;
       box-shadow: 0 2px 6px rgba(255, 255, 255, 0.1);
       transition: all 0.3s ease;
@@ -373,9 +375,9 @@
       font-family: 'Quicksand', sans-serif;
       font-weight: 600;
       margin: 6px;
-      padding: 1px 8px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 8px 16px;
       border-radius: 30px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
       background: rgba(255, 255, 255, 0.05);
       color: white;
       box-shadow: 0 0 6px rgba(255, 255, 255, 0.2);
@@ -424,7 +426,6 @@
         padding: 8px 15px;
       }
       .panel-grupos {
-        top: 50px;
         padding: 8px 0;
       }
       .panel-grupos button,
@@ -720,6 +721,8 @@
     </div>
   </div>
 
+  <div id="contenedor-grupos"></div>
+
   <div class="social-icons">
     <a href="https://www.facebook.com/" target="_blank">
       <img src="/static/img/facebook.png" alt="Facebook">
@@ -842,6 +845,11 @@
       if (primerBtn) {
         mostrarGrupo(primerBtn.textContent.trim(), { target: primerBtn }, true);
       }
+
+      // Ajuste inicial al cargar la página
+      const barraNav = document.querySelector('.barra-navegacion');
+      const alturaBarra = barraNav.offsetHeight;
+      panelGrupos.style.top = alturaBarra + 'px';
     };
 
     let carrito = [];
@@ -926,6 +934,11 @@
     function mostrarTodos() {
       const panelGrupos = document.getElementById('panelGrupos');
       const panelSub = document.getElementById('panelSubcategorias');
+      const barraNav = document.querySelector('.barra-navegacion');
+
+      // Calcular la altura de la barra de navegación y ajustarla dinámicamente
+      const alturaBarra = barraNav.offsetHeight;
+      panelGrupos.style.top = alturaBarra + 'px';
 
       panelGrupos.classList.toggle('oculto');
 
@@ -944,7 +957,7 @@
       const panelSub = document.getElementById('panelSubcategorias');
       panelGrupos.classList.add('oculto');
       panelSub.classList.add('oculto');
-      // Opcional: volver a la vista inicial (primer grupo/subgrupo)
+      // Opcional: volver a la vista inicial
       const primerBtn = document.querySelector('.btn-grupo');
       if (primerBtn) {
         mostrarGrupo(primerBtn.textContent.trim(), { target: primerBtn }, true);
@@ -1133,11 +1146,11 @@
       const clicDentroSub = panelSub.contains(event.target);
 
       if (!clicEnBoton && !clicDentroGrupos && !clicDentroSub) {
-        if (!panelGrupos.classList.contains('oculto')) {
-          panelGrupos.classList.add('oculto');
+        if (!panelGrupos.classList.contains('oculta')) {
+          panelGrupos.classList.add('oculta');
         }
-        if (!panelSub.classList.contains('oculto')) {
-          panelSub.classList.add('oculto');
+        if (!panelSub.classList.contains('oculta')) {
+          panelSub.classList.add('oculta');
         }
       }
     });
