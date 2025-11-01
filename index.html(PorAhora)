@@ -1041,7 +1041,6 @@ function ajustarPosicionesPaneles() {
     if (!panelGrupos.classList.contains('oculta')) {
       const alturaBarra = barraNav ? barraNav.offsetHeight : 0;
       const alturaGrupos = panelGrupos ? panelGrupos.offsetHeight : 0;
-      const margenAdicional = 10;
       panelGrupos.style.top = alturaBarra + 'px';
       panelGrupos.style.position = 'fixed';
       panelGrupos.style.left = '0';
