@@ -1078,18 +1078,24 @@ function ajustarPosicionesPaneles() {
   } else {
     // Ajuste para PC (ejemplo: top fijo mayor)
     if (!panelGrupos.classList.contains('oculta')) {
-      panelGrupos.style.top = '70px'; // Ajuste fijo para PC
+      const alturaBarra = barraNav ? barraNav.offsetHeight : 0;
+      const alturaGrupos = panelGrupos ? panelGrupos.offsetHeight : 0;
+      panelGrupos.style.top = alturaBarra + 'px';
       panelGrupos.style.position = 'fixed';
       panelGrupos.style.left = '0';
       panelGrupos.style.right = '0';
     }
     if (!panelSub.classList.contains('oculta')) {
-      panelSub.style.top = '113px'; // Ajuste fijo para PC, debajo de panelGrupos
+      const alturaBarra = barraNav ? barraNav.offsetHeight : 0;
+      const alturaGrupos = panelGrupos ? panelGrupos.offsetHeight : 0;
+      const margenAdicional = 0;
+      panelSub.style.top = (alturaBarra + alturaGrupos + margenAdicional) + 'px';
       panelSub.style.position = 'fixed';
       panelSub.style.left = '0';
       panelSub.style.right = '0';
+    } else {
+      panelSub.style.top = '100%';
     }
-  }
 }
 // Recalcular posiciones al cargar y al cambiar el tamaño de la ventana
 window.addEventListener('load', ajustarPosicionesPaneles);
