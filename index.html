@@ -152,8 +152,6 @@
       padding: 1px 0;
       text-align: center;
       box-shadow: 0 2px 6px rgba(255, 255, 255, 0.1);
-      max-height: 50vh;
-      overflow-y: auto;
     }
     .panel-grupos button {
       font-family: 'Quicksand', sans-serif;
@@ -176,24 +174,12 @@
     .oculta {
       display: none !important;
     }
-    @media (max-width: 600px) {
-      .panel-grupos button {
-        font-size: 13px;
-        padding: 1px 6px;
-        border-radius: 8px;
-      }
-    }
     .logo { 
       height: 10vw; 
       max-height: 380px; 
       filter: brightness(1.5) contrast(1.2) drop-shadow(0 0 14px None);
       transition: filter 0.3s ease;
       animation: pulsoLogo 4s ease-in-out infinite;
-    }
-    @media (max-width: 600px) {
-      .logo {
-        height: 140px !important;
-      }
     }
     @keyframes pulsoLogo {
       0%, 100% {
@@ -396,23 +382,34 @@
       background: rgba(255, 255, 255, 0.15);
       transform: scale(1.05);
     }
-    @media (min-width: 601px) {
-      .panel-subcategorias {
-        top: 110px;
-      }
-    }
     @media (max-width: 600px) {
-      .panel-subcategorias button {
-        font-size: 13px;
-        padding: 1px 6px;
-        border-radius: 8px;
-      }
-    }
-    @media (max-width: 600px) {
-      #panelSubcategorias {
-        top: 140px !important; /* o el valor que necesites */
-      }  
-    }
+  .logo {
+    height: 140px !important;
+  }
+  .barra-navegacion {
+    padding: 8px 10px;
+    gap: 8px;
+  }
+  .barra-navegacion button {
+    font-size: 14px;
+    padding: 8px 15px;
+  }
+  .panel-grupos {
+    padding: 8px 0;
+    max-height: 50vh; /* Altura máxima para que sea desplazable si hay muchos botones */
+    overflow-y: auto; /* Hace el panel desplazable verticalmente */
+  }
+  .panel-grupos button,
+  .btn-atras {
+    font-size: 14px;
+    padding: 6px 12px;
+    margin: 4px;
+  }
+  .panel-subcategorias {
+    max-height: 50vh; /* Altura máxima para el panel de subcategorías */
+    overflow-y: auto; /* Hace el panel desplazable verticalmente */
+  }
+}
     @keyframes fadeInUp {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
